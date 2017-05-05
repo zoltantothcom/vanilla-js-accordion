@@ -1,26 +1,25 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 0.1
+* @version 1.0.0
 */
 
 /**
 * @description
-* Vanilla Javascript Accordion
+* Vanilla JavaScript Accordion
 *
 * @class
-* @param {string} options.elem - The HTML id of the accordion container.
+* @param {string} options.element - The HTML id of the accordion container.
 * @param {number} [options.openTab=1] - Start the accordion with this item opened.
-* @param {boolean} [options.oneOpen=false] - Just one tab can be open at time.
-* @param {string} [options.titleClass="b-accordion__title"] - The HTML class of the tab titles.
-* @param {string} [options.contentClass="b-accordion__content"] - The HTML class of the tab content.
+* @param {boolean} [options.oneOpen=false] - Only one tab can be opened at a time.
 */
-Accordion = function(options) {
-    var elem = document.getElementById(options.elem),
-        openTab = options.open || undefined,
+var Accordion = function(options) {
+    var element = document.getElementById(options.element),
+        openTab = options.openTab || undefined,
         oneOpen = options.oneOpen || false,
-        titleClass = "b-accordion__title",
-        contentClass = "b-accordion__content";
+
+        titleClass   = 'js-Accordion-title',
+        contentClass = 'js-Accordion-content';
         
     render();
     
@@ -28,9 +27,23 @@ Accordion = function(options) {
      * Initial rendering of the accordion.
      */
     function render() {
-        elem.addEventListener("click", onClick);
+        // attach classes to buttons and containers
+        [].forEach.call(element.parentElement.querySelectorAll('#' + options.element + '> button'), 
+            function(item) {
+                item.classList.add(titleClass);
+                item.nextElementSibling.classList.add(contentClass);
+            });
+
+        // attach only one click listener
+        element.addEventListener('click', onClick);
+
+        // accordion starts with all tabs closed
         closeAll();
-        if (openTab) open(openTab);
+
+        // sets an open tab - if defined
+        if (openTab) { 
+            open(openTab);
+        }
     }
 
     /**
@@ -39,9 +52,14 @@ Accordion = function(options) {
      * @param {object} e - Element the click occured on.
      */
     function onClick(e) {
-        if (e.target.className.indexOf(titleClass) === -1) return;
+        if (e.target.className.indexOf(titleClass) === -1) {
+            return;
+        }
         
-        if (oneOpen) closeAll();
+        if (oneOpen) {
+            closeAll();
+        }
+
         toggle(e.target.nextElementSibling);
     }
     
@@ -49,8 +67,8 @@ Accordion = function(options) {
      * Closes all accordion tabs.
      */
     function closeAll() {
-        [].forEach.call(elem.querySelectorAll("." + contentClass), function(item) {
-            item.style.display = "none";
+        [].forEach.call(element.querySelectorAll('.' + contentClass), function(item) {
+            item.style.height = 0;
         });
     }
     
@@ -60,7 +78,25 @@ Accordion = function(options) {
      * @param {object} el - The content tab to show or hide.
      */
     function toggle(el) {
-        el.style.display = (el.style.display !== "none") ? "none" : "";
+        // getting the height every time in case
+        // the content was updated dynamically
+        var height = el.scrollHeight;
+
+        if (el.style.height === '0px' || el.style.height === '') {
+            el.style.height = height + 'px';
+        } else {
+            el.style.height = 0;
+        }
+    }
+
+
+    /**
+     * Returns the corresponding accordion content element by index.
+     *
+     * @param {number} n - Index of tab to return
+     */
+    function getTarget(n) {
+        return element.querySelectorAll('.' + contentClass)[n - 1];
     }
     
     /**
@@ -71,8 +107,12 @@ Accordion = function(options) {
      * @public
      */
     function open(n) {
-        if (oneOpen) closeAll();
-        elem.querySelectorAll("." + contentClass)[n - 1].style.display = "";
+        var target = getTarget(n);
+
+        if (target) {
+            if (oneOpen) closeAll();
+            target.style.height = target.scrollHeight + 'px';
+        }
     }
 
     /**
@@ -83,9 +123,15 @@ Accordion = function(options) {
      * @public
      */
     function close(n) {
-        elem.querySelectorAll("." + contentClass)[n - 1].style.display = "none";
+        var target = getTarget(n);
+
+        if (target) {
+            target.style.height = 0;
+        }
     }
     
-    this.open = open;
-    this.close = close;
-}
+    return {
+        open: open,
+        close: close
+    };
+};
