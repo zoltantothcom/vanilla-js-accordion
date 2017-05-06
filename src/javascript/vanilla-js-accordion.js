@@ -15,7 +15,7 @@
 */
 var Accordion = function(options) {
     var element = document.getElementById(options.element),
-        openTab = options.openTab || undefined,
+        openTab = options.openTab,
         oneOpen = options.oneOpen || false,
 
         titleClass   = 'js-Accordion-title',
@@ -40,7 +40,7 @@ var Accordion = function(options) {
         // accordion starts with all tabs closed
         closeAll();
 
-        // sets an open tab - if defined
+        // sets the open tab - if defined
         if (openTab) { 
             open(openTab);
         }
