@@ -8,14 +8,14 @@ Vanilla JavaScript accordion - tiny and accessible.
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
 
-## Demo
 ---
+## Demo
 
 [**Accordion**](http://zoltantothcom.github.io/vanilla-js-accordion)
 
 
-## Settings
 ---
+## Settings
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
@@ -24,8 +24,8 @@ openTab | int  |  | Accordion tab to start open with. If not defined all tabs cl
 oneOpen | boolean | false | Only one accordion tab can be open at a time.
 
 
-## Methods
 ---
+## Methods
 
 Method | Value | Description
 ------ | ----- | -----------
@@ -33,8 +33,8 @@ Method | Value | Description
 .open(n) | n: int | Opens the accordion tab by index
 
 
-## Usage example
 ---
+## Usage example
 
 ```javascript
 var accordion = new Accordion({
@@ -45,16 +45,16 @@ var accordion = new Accordion({
 ```
 
 
-## Run the tests
 ---
+## Run the tests
 
 ```
 npm test
 ```
 
 
-## Browser support and dependencies
 ---
+## Browser support and dependencies
 
 Browser | Support | Dependencies
 ------ | -------- | -----------
@@ -67,7 +67,7 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 \* _IE9 and up_
 
 
-## License
 ---
+## License
 
 Free to use and modify. [Unlicense](http://unlicense.org).
