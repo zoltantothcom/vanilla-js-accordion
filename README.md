@@ -27,10 +27,10 @@ oneOpen | boolean | false | Only one accordion tab can be open at a time.
 ---
 ## Methods
 
-Method | Value | Description
------- | ----- | -----------
-.close(n) | n: int | Closes the accordion tab by index
-.open(n) | n: int | Opens the accordion tab by index
+Method | Argument | Description
+------ | -------- | -----------
+.close(index) | index: int | Closes the accordion tab by index
+.open(index) | index: int | Opens the accordion tab by index
 
 
 ---
