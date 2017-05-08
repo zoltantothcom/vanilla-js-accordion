@@ -3,7 +3,7 @@ Vanilla JavaScript accordion
 
 [![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-accordion.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-dropdown) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-accordion/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-dropdown?branch=master) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
-Vanilla JavaScript accordion - tiny and accessible.
+Vanilla JavaScript accordion - accessible and super tiny (*~400 bytes gzipped*).
 
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
