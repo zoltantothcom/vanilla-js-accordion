@@ -1,5 +1,4 @@
 Vanilla JavaScript accordion
--------
 
 [![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-accordion.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-dropdown) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-accordion/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-dropdown?branch=master) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
@@ -8,13 +7,11 @@ Vanilla JavaScript accordion - accessible and super tiny (*~400 bytes gzipped*).
 *— Inspired by the blazing fast, lightweight, cross-platform and crazy popular [Vanilla JS](http://vanilla-js.com/)  framework.*
 
 
----
 ## Demo
 
-[**Accordion**](http://zoltantothcom.github.io/vanilla-js-accordion)
+[**ACCORDION**](http://zoltantothcom.github.io/vanilla-js-accordion)
 
 
----
 ## Settings
 
 Option | Type | Default | Description
@@ -24,7 +21,6 @@ openTab | int  |  | Accordion tab to start open with. If not defined all tabs cl
 oneOpen | boolean | false | Only one accordion tab can be open at a time.
 
 
----
 ## Methods
 
 Method | Argument | Description
@@ -33,7 +29,6 @@ Method | Argument | Description
 .open(index) | index: int | Opens the accordion tab by index
 
 
----
 ## Usage example
 
 ```javascript
@@ -45,15 +40,13 @@ var accordion = new Accordion({
 ```
 
 
----
-## Run the tests
+## Running the tests
 
 ```
 npm test
 ```
 
 
----
 ## Browser support and dependencies
 
 Browser | Support | Dependencies
@@ -67,7 +60,16 @@ IE | yes* | [Polyfill](//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js)
 \* _IE9 and up_
 
 
----
 ## License
 
-Free to use and modify. [Unlicense](http://unlicense.org).
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
+
+See [Unlicense](http://unlicense.org) for full details.
+
+
+## Related
+
+* [Vanilla JavaScript **Carousel**](https://github.com/zoltantothcom/vanilla-js-carousel)
+* [Vanilla JavaScript **Dropdown**](https://github.com/zoltantothcom/vanilla-js-dropdown)
+* [Vanilla JavaScript **Tabs**](https://github.com/zoltantothcom/vanilla-js-tabs)
+* [Vanilla JavaScript **Tooltip**](https://github.com/zoltantothcom/vanilla-js-tooltip)
