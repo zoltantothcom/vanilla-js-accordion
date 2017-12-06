@@ -12,7 +12,7 @@ Vanilla JavaScript accordion - accessible and super tiny (_**~400 bytes gzipped*
 [**ACCORDION**](http://zoltantothcom.github.io/vanilla-js-accordion)
 
 
-## Settings
+## Options
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
