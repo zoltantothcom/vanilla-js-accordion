@@ -1,14 +1,33 @@
-describe('ACCORDION - INVALID VALUES', function() {
+describe('ACCORDION - DEFAULT - DOM element passed', function() {
     beforeEach(function() {
         jasmine.getFixtures().fixturesPath = fixturePath;
         loadFixtures(accordionFixture);
 
+        var accordion = document.getElementById('accordion');
+
         this.accordion = new Accordion({
-            element: 'accordion',
-            openTab: 99
+            element: accordion
         });
     });
 
+    sharedTests();
+});
+
+describe('ACCORDION - DEFAULT - ID passed', function() {
+  beforeEach(function() {
+      jasmine.getFixtures().fixturesPath = fixturePath;
+      loadFixtures(accordionFixture);
+
+      this.accordion = new Accordion({
+          element: 'accordion'
+      });
+  });
+
+    sharedTests();
+});
+
+
+function sharedTests() {
     describe('behavior', function() {
         it('should have no open tab when openTab value is out of range', function() {
             expect( $('#accordion > div')[0] ).toHaveCss({ height: '0px' });
@@ -79,4 +98,4 @@ describe('ACCORDION - INVALID VALUES', function() {
             expect(content).toBeVisible();
         });
     });
-});
+}

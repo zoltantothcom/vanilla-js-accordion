@@ -1,13 +1,33 @@
-describe('ACCORDION - DEFAULT', function() {
+describe('ACCORDION - DEFAULT - DOM element passed', function() {
     beforeEach(function() {
         jasmine.getFixtures().fixturesPath = fixturePath;
         loadFixtures(accordionFixture);
 
+        var accordion = document.getElementById('accordion');
+
         this.accordion = new Accordion({
-            element: 'accordion'
+            element: accordion
         });
     });
 
+    sharedTests();
+});
+
+describe('ACCORDION - DEFAULT - ID passed', function() {
+  beforeEach(function() {
+      jasmine.getFixtures().fixturesPath = fixturePath;
+      loadFixtures(accordionFixture);
+
+      this.accordion = new Accordion({
+          element: 'accordion'
+      });
+  });
+
+    sharedTests();
+});
+
+
+function sharedTests() {
     describe('accordion', function() {
         it('should be defined', function() {
             expect( this.accordion ).toBeDefined();
@@ -63,4 +83,4 @@ describe('ACCORDION - DEFAULT', function() {
             expect( $('#accordion > div')[1] ).toHaveCss({ height: '0px' });
         });
     });
-});
+}

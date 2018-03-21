@@ -1,15 +1,33 @@
-describe('ACCORDION - ONE TAB OPEN', function() {
+describe('ACCORDION - DEFAULT - DOM element passed', function() {
     beforeEach(function() {
         jasmine.getFixtures().fixturesPath = fixturePath;
         loadFixtures(accordionFixture);
 
+        var accordion = document.getElementById('accordion');
+
         this.accordion = new Accordion({
-            element: 'accordion',
-            oneOpen: true,
-            openTab: 2
+            element: accordion
         });
     });
 
+    sharedTests();
+});
+
+describe('ACCORDION - DEFAULT - ID passed', function() {
+  beforeEach(function() {
+      jasmine.getFixtures().fixturesPath = fixturePath;
+      loadFixtures(accordionFixture);
+
+      this.accordion = new Accordion({
+          element: 'accordion'
+      });
+  });
+
+    sharedTests();
+});
+
+
+function sharedTests() {
     describe('accordion properties and behavior', function() {
         it('should open the 2nd tab when openTab set to 2', function() {
             expect( $('#accordion > div')[0] ).toHaveCss({ height: '0px' });
@@ -33,4 +51,4 @@ describe('ACCORDION - ONE TAB OPEN', function() {
             expect(content).toBeVisible();
         });
     });
-});
+}
