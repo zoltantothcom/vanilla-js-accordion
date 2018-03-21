@@ -6,7 +6,9 @@ describe('ACCORDION - DEFAULT - DOM element passed', function() {
         var accordion = document.getElementById('accordion');
 
         this.accordion = new Accordion({
-            element: accordion
+          element: accordion,
+          oneOpen: true,
+          openTab: 2
         });
     });
 
@@ -19,7 +21,9 @@ describe('ACCORDION - DEFAULT - ID passed', function() {
       loadFixtures(accordionFixture);
 
       this.accordion = new Accordion({
-          element: 'accordion'
+        element: 'accordion',
+        oneOpen: true,
+        openTab: 2
       });
   });
 
