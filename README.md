@@ -27,6 +27,7 @@ Method | Argument | Description
 ------ | -------- | -----------
 .close(index) | index: int | Closes the accordion tab by index
 .open(index) | index: int | Opens the accordion tab by index
+.destroy() | | Removes the event listener
 
 
 ## Usage example
