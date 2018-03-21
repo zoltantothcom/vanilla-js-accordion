@@ -1,7 +1,7 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 1.0.0
+* @version 1.1.0
 */
 
 /**
@@ -9,26 +9,28 @@
 * Vanilla JavaScript Accordion
 *
 * @class
-* @param {string} options.element - The HTML id of the accordion container.
+* @param {(string|Object)} options.element - HTML id of the accordion container
+*         or the DOM element.
 * @param {number} [options.openTab=1] - Start the accordion with this item opened.
 * @param {boolean} [options.oneOpen=false] - Only one tab can be opened at a time.
 */
 var Accordion = function(options) {
-    var element = document.getElementById(options.element),
+    var element = typeof options.element === 'string' ?
+                  document.getElementById(options.element) : options.element,
         openTab = options.openTab,
         oneOpen = options.oneOpen || false,
 
         titleClass   = 'js-Accordion-title',
         contentClass = 'js-Accordion-content';
-        
+
     render();
-    
+
     /**
      * Initial rendering of the accordion.
      */
     function render() {
         // attach classes to buttons and containers
-        [].forEach.call(element.parentElement.querySelectorAll('#' + options.element + '> button'), 
+        [].forEach.call(element.parentElement.querySelectorAll('#' + options.element + '> button'),
             function(item) {
                 item.classList.add(titleClass);
                 item.nextElementSibling.classList.add(contentClass);
@@ -41,28 +43,28 @@ var Accordion = function(options) {
         closeAll();
 
         // sets the open tab - if defined
-        if (openTab) { 
+        if (openTab) {
             open(openTab);
         }
     }
 
     /**
      * Handles clicks on the accordion.
-     * 
+     *
      * @param {object} e - Element the click occured on.
      */
     function onClick(e) {
         if (e.target.className.indexOf(titleClass) === -1) {
             return;
         }
-        
+
         if (oneOpen) {
             closeAll();
         }
 
         toggle(e.target.nextElementSibling);
     }
-    
+
     /**
      * Closes all accordion tabs.
      */
@@ -71,10 +73,10 @@ var Accordion = function(options) {
             item.style.height = 0;
         });
     }
-    
+
     /**
      * Toggles corresponding tab for each title clicked.
-     * 
+     *
      * @param {object} el - The content tab to show or hide.
      */
     function toggle(el) {
@@ -98,12 +100,12 @@ var Accordion = function(options) {
     function getTarget(n) {
         return element.querySelectorAll('.' + contentClass)[n - 1];
     }
-    
+
     /**
      * Opens a tab by index.
-     * 
+     *
      * @param {number} n - Index of tab to open.
-     * 
+     *
      * @public
      */
     function open(n) {
@@ -117,9 +119,9 @@ var Accordion = function(options) {
 
     /**
      * Closes a tab by index.
-     * 
+     *
      * @param {number} n - Index of tab to close.
-     * 
+     *
      * @public
      */
     function close(n) {
@@ -129,7 +131,7 @@ var Accordion = function(options) {
             target.style.height = 0;
         }
     }
-    
+
     return {
         open: open,
         close: close
