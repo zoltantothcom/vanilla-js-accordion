@@ -15,8 +15,7 @@
 * @param {boolean} [options.oneOpen=false] - Only one tab can be opened at a time.
 */
 var Accordion = function(options) {
-    var element = typeof options.element === 'string' ?
-                  document.getElementById(options.element) : options.element,
+    var element = typeof options.element === 'string' ? document.getElementById(options.element) : options.element,
         openTab = options.openTab,
         oneOpen = options.oneOpen || false,
 
@@ -30,7 +29,7 @@ var Accordion = function(options) {
      */
     function render() {
         // attach classes to buttons and containers
-        [].forEach.call(element.parentElement.querySelectorAll('#' + options.element + '> button'),
+        [].forEach.call(element.querySelectorAll('button'),
             function(item) {
                 item.classList.add(titleClass);
                 item.nextElementSibling.classList.add(contentClass);
@@ -132,8 +131,18 @@ var Accordion = function(options) {
         }
     }
 
+    /**
+     * Destroys the accordion.
+     *
+     * @public
+     */
+    function destroy() {
+        element.removeEventListener('click', onClick);
+    }
+
     return {
         open: open,
-        close: close
+        close: close,
+        destroy: destroy
     };
 };
