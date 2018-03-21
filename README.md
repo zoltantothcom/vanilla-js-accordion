@@ -1,6 +1,6 @@
 Vanilla JavaScript accordion
 
-[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-accordion.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-dropdown) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-accordion/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-dropdown?branch=master) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
+[![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-accordion.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-accordion) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-accordion/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-accordion?branch=master) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
 Vanilla JavaScript accordion - accessible and super tiny (_**~400 bytes gzipped**_).
 
