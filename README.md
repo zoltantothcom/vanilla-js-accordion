@@ -16,7 +16,7 @@ Vanilla JavaScript accordion - accessible and super tiny (_**~400 bytes gzipped*
 
 Option | Type | Default | Description
 ------ | ---- | ------- | -----------
-element | string|object |  | *id* of the accordion container or the DOM element
+element | string or object |  | *id* of the accordion container or the DOM element
 openTab | int  |  | Accordion tab to start open with. If not defined all tabs closed.
 oneOpen | boolean | false | Only one accordion tab can be open at a time.
 
