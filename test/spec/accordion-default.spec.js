@@ -71,6 +71,10 @@ function sharedTests() {
             expect(typeof this.accordion.close).toBe('function');
         });
 
+        it('should have a destroy() method', function() {
+            expect(typeof this.accordion.destroy).toBe('function');
+        });
+
         it('.open(1) should open the 1st tab of accordion', function() {
             this.accordion.open(1);
             expect( $('#accordion > div')[0] ).toBeVisible();
@@ -81,6 +85,24 @@ function sharedTests() {
             expect( $('#accordion > div')[1] ).toBeVisible();
             this.accordion.close(2);
             expect( $('#accordion > div')[1] ).toHaveCss({ height: '0px' });
+        });
+
+        it('should do nothing after destroy()', function() {
+            var button = $('#accordion > button')[0],
+                content = $('#accordion > div')[0];
+
+            expect(content).toHaveCss({ height: '0px' });
+
+            this.accordion.destroy();
+
+            var spyEvent = spyOnEvent(button, 'click');
+
+            button.click();
+
+            expect('click').toHaveBeenTriggeredOn(button);
+            expect(spyEvent).toHaveBeenTriggered();
+
+            expect(content).toHaveCss({ height: '0px' });
         });
     });
 }
