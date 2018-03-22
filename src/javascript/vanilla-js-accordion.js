@@ -15,7 +15,8 @@
 * @param {boolean} [options.oneOpen=false] - Only one tab can be opened at a time.
 */
 var Accordion = function(options) {
-    var element = typeof options.element === 'string' ? document.getElementById(options.element) : options.element,
+    var element = typeof options.element === 'string' ?
+                    document.getElementById(options.element) : options.element,
         openTab = options.openTab,
         oneOpen = options.oneOpen || false,
 
