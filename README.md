@@ -1,4 +1,4 @@
-Vanilla JavaScript accordion
+# Vanilla JavaScript accordion
 
 [![Build Status](https://travis-ci.org/zoltantothcom/vanilla-js-accordion.svg?branch=master)](https://travis-ci.org/zoltantothcom/vanilla-js-accordion) [![Coverage Status](https://coveralls.io/repos/github/zoltantothcom/vanilla-js-accordion/badge.svg?branch=master)](https://coveralls.io/github/zoltantothcom/vanilla-js-accordion?branch=master) ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)
 
