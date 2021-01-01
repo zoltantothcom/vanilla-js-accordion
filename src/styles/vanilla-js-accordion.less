@@ -25,4 +25,8 @@
     line-height: 1.5;
     overflow: hidden;
     transition: all .25s linear;
+
+    &:not([style="height: 0px;"]) { 
+        height: auto !important; 
+    }
 }
