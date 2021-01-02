@@ -1,7 +1,7 @@
 /**
 * @fileOverview
 * @author Zoltan Toth
-* @version 1.1.0
+* @version 1.3.0
 */
 
 /**
@@ -58,11 +58,19 @@ var Accordion = function(options) {
             return;
         }
 
+        var nextContent = e.target.nextElementSibling;
+      
+        if (nextContent.style.height !== '0px' && nextContent.style.height !== '') {
+            e.target.nextElementSibling.style.height = 0;
+            return;
+        }
+      
+
         if (oneOpen) {
             closeAll();
         }
 
-        toggle(e.target.nextElementSibling);
+        toggle(nextContent);
     }
 
     /**
