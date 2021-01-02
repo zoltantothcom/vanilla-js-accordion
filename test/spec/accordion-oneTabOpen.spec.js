@@ -54,5 +54,31 @@ function sharedTests() {
 
             expect(content).toBeVisible();
         });
+
+        it('should close the open tab on a second click', function() {
+            var button = $('#accordion > button')[0],
+                content = $('#accordion > div')[0];
+
+            expect(content).toHaveCss({ height: '0px' });
+
+            var spyEvent = spyOnEvent(button, 'click');
+
+            // open 
+            button.click();
+
+            expect('click').toHaveBeenTriggeredOn(button);
+            expect(spyEvent).toHaveBeenTriggered();
+
+            expect(content).toBeVisible();
+            expect(content).not.toHaveCss({ height: '0px' });
+
+            // close
+            button.click();
+
+            expect('click').toHaveBeenTriggeredOn(button);
+            expect(spyEvent).toHaveBeenTriggered();
+
+            expect(content).toHaveCss({ height: '0px' });
+        });
     });
 }
